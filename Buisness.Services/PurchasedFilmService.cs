@@ -27,7 +27,7 @@ namespace Buisness.Services
 
         public PurchasedFilmDto Create(PurchasedFilmDto dto)
         {
-            
+            dto.DateOfBuying = new DateTime();
             var entity = _mapper.Map<PurchasedFilm>(dto);
             _purchasedFilmRepository.CreateOrUpdate(entity);
             var film = _filmRepository.Read(dto.FilmId);
