@@ -1,0 +1,70 @@
+﻿@model Buisness.Interop.Data.FilmDto
+
+@{
+    ViewData["Title"] = "Добавление фильма";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateOrUpdate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Название фильма</label>
+                <input asp-for="Name" maxlength="40" size="22" placeholder="Введите название фильма" />
+                <span class="text-danger" asp-validation-for="@Model.Name"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="CountryId" class="control-label">Страна:</label>
+                <select asp-antiforgery="true" data-live-search="true" autocomplete="true" asp-for="CountryId" class="form-control" asp-items="ViewBag.CountryIds">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="CountryId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GenreId" class="control-label">Жанр:</label>
+                <select asp-for="GenreId"  asp-antiforgery="true" data-live-search="true" autocomplete="true" class="form-control" asp-items="ViewBag.GenreIds">
+                    <option selected="selected" value=""></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AgeRatingId" class="control-label">Возрастной рейтинг:</label>
+                <select asp-antiforgery="true" data-live-search="true" autocomplete="true" asp-for="AgeRatingId" class="form-control" asp-items="ViewBag.AgeRatingIds">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="AgeRatingId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Стоимость:</label>
+                <input type="number" min="0" maxlength="40" size="22" placeholder="Введите стоимость" asp-antiforgery="true" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Описание:</label>
+                <input size="22" placeholder="Введите описание" asp-antiforgery="true" asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Created" class="control-label">Дата создания:</label>
+                <input type="date" class="form-control" asp-for="Created" />
+                <span asp-validation-for="Created" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="SubmitButton" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

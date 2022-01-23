@@ -1,0 +1,33 @@
+﻿@model Buisness.Interop.Data.CityDto
+
+@{
+    ViewData["Title"] = "Город";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateOrUpdate">
+            <input type="hidden" value="@(Model is null ? 0 : Model.Id)" name="Id" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Название:</label>
+                <input asp-for="Name" maxlength="40" size="22" placeholder="Введите название" />
+                <span class="text-danger" asp-validation-for="@Model.Name"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CountryId" class="control-label">Страна:</label>
+                <select asp-antiforgery="true" data-live-search="true" autocomplete="true" asp-for="CountryId" class="form-control" asp-items="ViewBag.CountryIds">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="CountryId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" id="SubmitButton" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

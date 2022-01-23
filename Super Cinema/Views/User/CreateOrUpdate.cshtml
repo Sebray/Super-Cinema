@@ -1,0 +1,64 @@
+﻿@model Buisness.Interop.Data.UserDto
+
+@{
+    ViewData["Title"] = "Регистрация";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateOrUpdate">
+            <input type="hidden" value="@(Model is null ? 0 : Model.Id)" name="Id" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Login" class="control-label">Логин:</label>
+                <input asp-for="Login" maxlength="40" size="22" placeholder="Введите логин" />
+                <span class="text-danger" asp-validation-for="@Model.Login"></span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Пароль:</label>
+                <input type="password" asp-for="Password" maxlength="40" size="22" placeholder="Введите пароль" />
+                <span class="text-danger" asp-validation-for="@Model.Password"></span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">Имя:</label>
+                <input asp-for="FirstName" maxlength="40" size="22" placeholder="Введите имя" />
+                <span class="text-danger" asp-validation-for="@Model.FirstName"></span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SecondName" class="control-label">Фамилия:</label>
+                <input asp-for="SecondName" maxlength="40" size="22" placeholder="Введите фамилию" />
+                <span class="text-danger" asp-validation-for="@Model.SecondName"></span>
+            </div>
+            @{if (Model !=null && Model.Id != 0)
+                {
+                    <div class="form-group">
+                        <label asp-for="Balance" class="control-label">Баланс:</label>
+                        <input type="number" min="0" maxlength="40" size="22" placeholder="Введите баланс" asp-antiforgery="true" asp-for="Balance" class="form-control" />
+                        <span asp-validation-for="Balance" class="text-danger"></span>
+                    </div>
+                }
+            }
+            <div class="form-group">
+                <label asp-for="CityId" class="control-label">Город:</label>
+                <select asp-antiforgery="true" data-live-search="true" autocomplete="true" asp-for="CityId" class="form-control" asp-items="ViewBag.CityIds">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="CityId" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label">День рождения:</label>
+                <input type="date" class="form-control" asp-for="Birthday" />
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="SubmitButton" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

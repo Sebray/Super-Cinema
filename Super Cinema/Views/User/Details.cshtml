@@ -1,0 +1,25 @@
+﻿@model Buisness.Interop.Data.UserDto
+
+@{
+    ViewData["Title"] = "Пользователь";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="border-radius: 5px">
+    <div>Имя:<p />@Model?.FirstName</div>
+    <div>Фамилия:<p />@Model?.SecondName</div>
+    <div>Логин:<p />@Model?.Login</div>
+    <div>Пароль:<p />@Model?.Password</div>
+    <div>Баланс:<p />@Model?.Balance рублей</div>
+    <div>Город:<p />@Model.City.Name</div>
+    <div>Страна:<p />@Model.City?.Country.Name</div>
+    <div>Дата рождения:<p /> @Model.Birthday.ToString("dd/MM/yyyy")</div>
+    <hr />
+    <div class="col align-self-end">
+        <div align="right">
+            <div class="btn-group">
+                @Html.ActionLink("Купленые фильмы", "Index", "PurchasedFilm", new {id = Model.Id }, new { @class = "btn btn-outline-danger" })
+            </div>
+        </div>
+    </div>
+</div>

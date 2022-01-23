@@ -1,0 +1,18 @@
+﻿@model Buisness.Interop.Data.FilmDto
+
+@{
+    ViewData["Title"] = "Фильм";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="border-radius: 5px">
+        <div>Имя:<p/>@Model?.Name</div>
+        <div>Стоимость:<p/> @Model?.Price руб.</div>
+        <div>Страна:<p/>@Model.Country?.Name</div>
+        <div>Дата создания:<p/> @Model.Created.Date.ToString("dd/MM/yyyy")</div>
+        <div>Возрастной рейтинг:<p/> @Model.AgeRating?.Rating</div>
+        <div>Жанр:<p/> @Model.Genre?.Name</div>
+        <hr />
+        <div>Описание:<p/> @Model.Description</div>
+    
+</div>

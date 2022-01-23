@@ -1,0 +1,32 @@
+﻿@model Buisness.Interop.Data.PurchasedFilmDto
+
+@{
+    ViewData["Title"] = "Покупка";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Buy">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FilmId" class="control-label">Выберите фильм:</label>
+                <select asp-antiforgery="true" data-live-search="true" autocomplete="true" asp-for="FilmId" class="form-control" asp-items="ViewBag.FilmIds">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="FilmId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Выберите Пользователя:</label>
+                <select asp-antiforgery="true" data-live-search="true" autocomplete="true" asp-for="UserId" class="form-control" asp-items="ViewBag.UserIds">
+                    <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" id="SubmitButton" value="Купить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

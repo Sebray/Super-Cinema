@@ -1,0 +1,49 @@
+﻿@{ ViewData["Title"] = "Главная"; }
+
+<h2>Главная</h2>
+
+<div class="container" style="border-radius: 5px">
+    <div class="row" style="border-radius: 2px">
+        @Html.ActionLink("Пользователи", "Index", "User", null, new { @class = "nav-link text-dark" })
+    </div>
+</div>
+
+
+<div class="container" style="border-radius: 5px">
+    <div class="row" style="border-radius: 2px">
+        @Html.ActionLink("Фильмы", "Index", "Film", null, new { @class = "nav-link text-dark" })
+    </div>
+</div>
+
+<div class="container" style="border-radius: 5px">
+    <div class="row" style="border-radius: 2px">
+        @Html.ActionLink("Регионы", "Index", "Region", null, new { @class = "nav-link text-dark" })
+    </div>
+</div>
+
+<div class="container" style="border-radius: 5px">
+    <div class="row" style="border-radius: 2px">
+        @Html.ActionLink("Страны", "Index", "Country", null, new { @class = "nav-link text-dark" })
+    </div>
+</div>
+
+<div class="container" style="border-radius: 5px">
+    <div class="row" style="border-radius: 2px">
+        @Html.ActionLink("Города", "Index", "City", null, new { @class = "nav-link text-dark" })
+    </div>
+</div>
+<div class="container" style="border-radius: 5px">
+    <div class="row" style="border-radius: 2px">
+        @Html.ActionLink("Жанры", "Index", "Genre", null, new { @class = "nav-link text-dark" })
+    </div>
+</div>
+<div class="container" style="border-radius: 5px">
+    <div class="row" style="border-radius: 2px">
+        @Html.ActionLink("Возрастной рейтинг", "Index", "AgeRating", null, new { @class = "nav-link text-dark" })
+    </div>
+</div>
+<div class="container" style="border-radius: 5px">
+    <div class="row" style="border-radius: 2px">
+        @Html.ActionLink("Купить фильм", "Buy", "PurchasedFilm", null, new { @class = "nav-link text-dark" })
+    </div>
+</div>
